@@ -10,6 +10,17 @@ package homeworks.java.cosmo.string;
 public class ExG {
     public static void main(String[] args) {
         String input = "Где мои деньги?";
+        String [] splitInput = input.split(" ");
+        StringBuilder resultBuilder = new StringBuilder();
 
+        splitInput[2] = splitInput[2].replaceFirst("д", "Д")
+                .replace("?", "");
+        splitInput[0] = splitInput[0].toLowerCase().concat("?");
+
+        for(int i = splitInput.length - 1; i >= 0; i--) {
+            resultBuilder.append(splitInput[i]).append(" ");
+        }
+        String result = resultBuilder.toString().trim();
+        System.out.println(result);
     }
 }
